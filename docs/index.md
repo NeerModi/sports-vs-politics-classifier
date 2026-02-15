@@ -1,4 +1,3 @@
-# Sports vs Politics News Classification
 
 **Course:** Natural Language Understanding (NLU)  
 **Student:** Neer Modi  
@@ -115,16 +114,6 @@ Three classification algorithms were trained and compared:
 3. **Linear SVM** - Support Vector Machine with linear kernel
 
 The training data was split using stratified sampling to maintain the original class distribution in both training and test sets.
-
----
-
-## Technical Stack
-
-- Python 3.9+ for implementation
-- Scikit-learn for machine learning algorithms
-- NLTK for natural language processing
-- Pandas and NumPy for data manipulation
-- Matplotlib and Seaborn for visualizations
 
 ---
 
