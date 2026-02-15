@@ -3,7 +3,7 @@ title: Sports vs Politics News Classification
 description: Machine Learning Classification System using Natural Language Processing
 author: NLU Assignment
 email: contact@example.com
-url: https://yourusername.github.io/sports-vs-politics-classifier
+url: https://NeerModi.github.io/sports-vs-politics-classifier
 
 # Build settings
 theme: jekyll-theme-minimal
@@ -22,7 +22,7 @@ navigation:
   - title: Methodology
     url: /methodology
   - title: GitHub
-    url: https://github.com/yourusername/sports-vs-politics-classifier
+    url: https://github.com/NeerModi/sports-vs-politics-classifier
 
 # Markdown settings
 markdown: kramdown
