@@ -1,8 +1,3 @@
-"""
-Text preprocessing module for sports vs politics classification.
-Handles text cleaning, lowercasing, punctuation removal, stopword removal, and lemmatization.
-"""
-
 import re
 import string
 import nltk
@@ -10,9 +5,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
-# Download required NLTK data
 def _download_nltk_data():
-    """Download required NLTK data"""
     resources = {
         'punkt': 'tokenizers/punkt',
         'punkt_tab': 'tokenizers/punkt_tab',
@@ -50,11 +43,6 @@ def clean_text(text):
     
     text = re.sub(r'[^a-zA-Z\s]', '', text)
     
-    # Remove extra whitespaces
-    text = re.sub(r'\s+', ' ', text).strip()
-    
-    # Tokenize
-    tokens = word_tokenize(text)
     text = re.sub(r'\s+', ' ', text).strip()
     
     tokens = word_tokenize(text)
@@ -67,20 +55,5 @@ def clean_text(text):
     return cleaned_text
 
 
-def preprocess_batch(texts)
-if __name__ == "__main__":
-    # Test the preprocessing function
-    sample_texts = [
-        "SPORTS: The team won the championship! Visit https://example.com for more.",
-        "POLITICS: The government announced new policy changes today.",
-        "Breaking News!!! Check @user for updates..."
-    ]
-    
-    print("Text Preprocessing Module Test")
-    print("=" * 80)
-    
-    for i, text in enumerate(sample_texts, 1):
-        cleaned = clean_text(text)
-        print(f"\nOriginal Text {i}:\n{text}")
-        print(f"\nCleaned Text {i}:\n{cleaned}")
-        print("-" * 80)
+def preprocess_batch(texts):
+    return [clean_text(text) for text in texts]

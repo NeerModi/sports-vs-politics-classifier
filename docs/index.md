@@ -3,256 +3,143 @@
 **Course:** Natural Language Understanding (NLU)  
 **Student:** Neer Modi  
 **Roll No:** B23CS1043  
-**Status:** ✓ Complete  
+**Date:** February 15, 2026
 
 ---
 
-## 🎯 Project Overview
+## Overview
 
-This project implements a **complete Natural Language Processing (NLP) pipeline** to automatically classify news articles into two categories: **Sports** and **Politics**. 
-
-Using machine learning algorithms trained on **40,679 real-world news articles**, we achieved an impressive **97.32% accuracy** with Linear SVM.
+This project builds a machine learning system to classify news articles into two categories: Sports and Politics. Using natural language processing techniques on 40,679 real news articles from HuffPost, the system achieved 97.32% accuracy with Linear SVM.
 
 ---
 
-## ⚡ Quick Stats
+## Results
 
-| Metric | Value |
+### Performance Summary
+
+The best performing model was Linear SVM with the following metrics:
+
+| Metric | Score |
 |--------|-------|
-| **Best Accuracy** | 97.32% |
-| **Best Model** | Linear SVM |
-| **Precision** | 97.88% |
-| **Recall** | 99.09% |
-| **F1-Score** | 98.48% |
-| **Dataset Size** | 40,679 articles |
-| **Training Samples** | 32,543 |
-| **Test Samples** | 8,136 |
+| Accuracy | 97.32% |
+| Precision | 97.88% |
+| Recall | 99.09% |
+| F1-Score | 98.48% |
 
----
-
-## 📊 Model Performance Comparison
+### Model Comparison
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |-------|----------|-----------|--------|----------|
-| **Linear SVM** 🏆 | **97.32%** | **97.88%** | **99.09%** | **98.48%** |
+| Linear SVM | 97.32% | 97.88% | 99.09% | 98.48% |
 | Naive Bayes | 96.64% | 96.67% | 99.59% | 98.11% |
 | Logistic Regression | 96.58% | 96.51% | 99.71% | 98.08% |
 
----
+### Confusion Matrix - Linear SVM
 
-## 📚 Documentation
+![Linear SVM Confusion Matrix](confusion_matrix_linear_svm.png)
 
-Explore the project in detail:
-
-- **[📈 Results & Metrics](results.md)** - Detailed performance analysis, confusion matrices, and visualizations
-- **[🤖 Machine Learning Models](models.md)** - Mathematical foundations and technical descriptions
-- **[🔬 Methodology](methodology.md)** - Complete pipeline explanation and preprocessing details
-
----
-
-## 🎯 Key Features
-
-✓ **Complete NLP Pipeline** - From raw JSON to trained models  
-✓ **Multiple Models** - Comparison of 3 classification algorithms  
-✓ **High Accuracy** - 97.32% on unseen test data  
-✓ **Professional Documentation** - Comprehensive report with mathematical details  
-✓ **Visualizations** - 6 charts and confusion matrices  
-✓ **Production-Ready** - Trained models saved and ready to use  
-
----
-
-## 📖 Dataset
-
-**Source:** News Category Dataset v3 (Kaggle)  
-**Time Period:** 2012-2018  
-**Publication:** HuffPost News
-
-### Class Distribution
-- **SPORTS:** 5,077 articles (12.5%)
-- **POLITICS:** 35,602 articles (87.5%)
-
----
-
-## 🏗️ Project Architecture
-
-```
-Data Preparation → Feature Engineering → Model Training → Evaluation
-     ↓                    ↓                     ↓              ↓
-Load JSON          TF-IDF Features      Train 3 Models    Generate Metrics
-Filter Categories   5,000 dimensions    Linear SVM        Confusion Matrices
-Encode Labels       80:20 split          Naive Bayes      Visualizations
-                                        Logistic Reg
-```
-
----
-
-## 🛠️ Technologies Used
-
-- **Python 3.9+** - Programming language
-- **Scikit-learn** - Machine learning algorithms
-- **NLTK** - Natural language processing
-- **Pandas & NumPy** - Data manipulation
-- **Matplotlib & Seaborn** - Visualization
-
----
-
-## 📝 Preprocessing Pipeline
-
-### Text Cleaning (6 Steps)
-
-1. **Lowercase conversion** - Normalize text case
-2. **Special character removal** - Keep only alphanumeric
-3. **Tokenization** - Split into words
-4. **Stopword removal** - Remove common words (the, a, is)
-5. **Lemmatization** - Convert to base form (playing → play)
-6. **Text reconstruction** - Rejoin processed tokens
-
-### Example
-```
-BEFORE: "Andrew McCutchen Wins 2012 NL MVP! Check @MLB..."
-AFTER:  "andrew mccutchen win nml mvp check"
-```
-
----
-
-## 🤖 Best Model: Linear SVM
+The confusion matrix shows that out of 8,136 test articles:
+- 862 sports articles were correctly classified (84.9%)
+- 7,056 politics articles were correctly classified (98.9%)
+- Only 153 sports articles were misclassified as politics
+- Only 65 politics articles were misclassified as sports
 
 ### Performance Metrics
-```
-Test Accuracy:   97.32%
-Precision:       97.88%
-Recall:          99.09%
-F1-Score:        98.48%
-ROC-AUC:         98.73%
-```
 
-### Why Linear SVM?
-- ✓ Excellent for high-dimensional sparse data
-- ✓ Maximum margin decision boundary
-- ✓ Fast inference time (0.0004s per sample)
-- ✓ Robust generalization
+![Metrics Heatmap](metrics_heatmap.png)
 
-### Confusion Matrix
-```
-                  Predicted SPORTS  Predicted POLITICS
-Actual SPORTS              862                153
-Actual POLITICS             65               7056
-```
+![Metrics Comparison](metrics_comparison.png)
+
+### Other Models
+
+For reference, the confusion matrices of other models are shown below:
+
+**Naive Bayes Confusion Matrix**
+
+![Naive Bayes Confusion Matrix](confusion_matrix_naive_bayes.png)
+
+**Logistic Regression Confusion Matrix**
+
+![Logistic Regression Confusion Matrix](confusion_matrix_logistic_regression.png)
 
 ---
 
-## 📁 Project Structure
+## Dataset
 
+The project uses the News Category Dataset v3 from Kaggle, containing articles published between 2012-2018. After filtering for only Sports and Politics categories, the dataset contained:
+
+- **Total articles:** 40,679
+- **Sports articles:** 5,077 (12.5%)
+- **Politics articles:** 35,602 (87.5%)
+- **Training set:** 32,543 articles (80%)
+- **Test set:** 8,136 articles (20%)
+
+---
+
+## Methodology
+
+### Data Preprocessing
+
+The text preprocessing pipeline involves several steps:
+
+1. **Lowercase conversion** - All text converted to lowercase
+2. **URL and special character removal** - URLs, emails, and special characters removed
+3. **Tokenization** - Text split into individual words
+4. **Stopword removal** - Common English words (the, a, is, etc.) removed
+5. **Lemmatization** - Words converted to base form (playing → play, better → good)
+6. **Text reconstruction** - Processed tokens rejoined into text
+
+Example:
 ```
-sports-vs-politics-classifier/
-├── data/
-│   ├── raw/                    # Raw dataset
-│   └── processed/              # Processed features
-├── src/
-│   ├── prepare.py              # Data preparation
-│   ├── features.py             # Feature engineering
-│   ├── train.py                # Model training
-│   └── evaluate.py             # Evaluation
-├── models/
-│   ├── linear_svm.pkl          # Best model
-│   ├── naive_bayes.pkl
-│   └── logistic_regression.pkl
-├── results/
-│   ├── confusion_matrix_*.png   # Visualizations
-│   ├── metrics.csv
-│   └── metrics_heatmap.png
-├── report/
-│   └── report.md               # Comprehensive report
-├── docs/
-│   ├── index.md               # This file
-│   ├── results.md
-│   ├── models.md
-│   └── methodology.md
-├── README.md                   # Quick start guide
-├── requirements.txt
-├── _config.yml                 # GitHub Pages config
-└── run_pipeline.py             # Execute full pipeline
+Original: "Andrew McCutchen Wins 2012 NL MVP! Check @MLB for details..."
+Processed: "andrew mccutchen win nml mvp check detail"
 ```
 
----
+### Feature Engineering
 
-## 🚀 Quick Start
+Features were extracted using TF-IDF (Term Frequency-Inverse Document Frequency) vectorization with the following parameters:
 
-### Installation
-```bash
-# Clone repository
-git clone https://github.com/YOUR_USERNAME/sports-vs-politics-classifier.git
-cd sports-vs-politics-classifier
+- Maximum features: 5,000
+- Minimum document frequency: 2
+- Maximum document frequency: 95%
+- N-gram range: unigrams only (single words)
 
-# Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
+This produced a sparse matrix of 40,679 articles × 5,000 features with 99.8% sparsity.
 
-# Install dependencies
-pip install -r requirements.txt
-```
+### Model Training
 
-### Run Pipeline
-```bash
-python run_pipeline.py
-```
+Three classification algorithms were trained and compared:
 
-This will:
-1. Load and process the dataset
-2. Extract features
-3. Train all 3 models
-4. Generate visualizations
-5. Create performance reports
+1. **Multinomial Naive Bayes** - Probabilistic classifier based on Bayes' theorem
+2. **Logistic Regression** - Linear classifier using logistic function
+3. **Linear SVM** - Support Vector Machine with linear kernel
+
+The training data was split using stratified sampling to maintain the original class distribution in both training and test sets.
 
 ---
 
-## 📊 Results Highlights
+## Technical Stack
 
-### Accuracy by Model
-- **Linear SVM:** 97.32% (Best)
-- **Naive Bayes:** 96.64%
-- **Logistic Regression:** 96.58%
-
-### Per-Class Performance (Linear SVM)
-- **SPORTS:** 85% recall, 93% precision
-- **POLITICS:** 99% recall, 98% precision
-
-### Key Insights
-- Clear vocabulary distinction between categories
-- Minimal class imbalance effects
-- All models generalize well to test data
-- Linear SVM provides best overall performance
+- Python 3.9+ for implementation
+- Scikit-learn for machine learning algorithms
+- NLTK for natural language processing
+- Pandas and NumPy for data manipulation
+- Matplotlib and Seaborn for visualizations
 
 ---
 
-## 📖 Read More
+## Key Findings
 
-For detailed information, see:
+All three models performed well on this classification task, with accuracy scores above 96%. The Linear SVM model achieved the best balance between precision and recall, making it suitable for production use.
 
-- **[Results & Metrics](results.md)** - Complete performance analysis
-- **[Machine Learning Models](models.md)** - Model descriptions with mathematics
-- **[Methodology](methodology.md)** - Technical pipeline details
-- **[Full Report](../report/report.md)** - Comprehensive academic report
-
----
-
-## 👤 Author
-
-**Name:** Neer Modi  
-**Roll No:** B23CS1043  
-**Course:** Natural Language Understanding (NLU)  
-**Date:** February 15, 2026  
+The high performance is attributed to:
+- Clear linguistic differences between sports and politics articles
+- Effective text preprocessing pipeline
+- Appropriate feature engineering with TF-IDF
+- Stratified train-test split to handle class imbalance
 
 ---
 
-## 📄 License
+## Conclusion
 
-This project is open source and available for educational purposes.
-
----
-
-**Project Status:** ✓ Complete  
-**Website Built With:** Jekyll + GitHub Pages  
-**Best Accuracy Achieved:** 97.32% (Linear SVM)
-
----
+This project demonstrates that automated classification of news articles into sports and politics categories is achievable with high accuracy using standard machine learning techniques. The Linear SVM model with 97.32% accuracy provides a reliable system for this task.
