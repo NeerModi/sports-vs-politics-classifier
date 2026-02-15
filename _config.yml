@@ -1,0 +1,40 @@
+site: Sports vs Politics Classifier
+title: Sports vs Politics News Classification
+description: Machine Learning Classification System using Natural Language Processing
+author: NLU Assignment
+email: contact@example.com
+url: https://yourusername.github.io/sports-vs-politics-classifier
+
+# Build settings
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Results
+    url: /results
+  - title: Models
+    url: /models
+  - title: Methodology
+    url: /methodology
+  - title: GitHub
+    url: https://github.com/yourusername/sports-vs-politics-classifier
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude from processing
+exclude:
+  - .gitignore
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - venv/
+  - data/raw/
+  - notebooks/
+  - __pycache__/
