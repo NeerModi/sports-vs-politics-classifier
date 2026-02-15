@@ -1,8 +1,3 @@
-"""
-Data Preparation Script
-Loads JSON dataset, filters categories, combines text, and encodes labels
-"""
-
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,12 +5,10 @@ import seaborn as sns
 from pathlib import Path
 import sys
 
-# Add src to path
 sys.path.insert(0, str(Path(__file__).parent))
 
 
 def load_and_filter_data(json_path):
-    """Load JSON data and filter for SPORTS and POLITICS categories"""
     print("Loading dataset from JSON...")
     
     articles = []
@@ -40,13 +33,11 @@ def load_and_filter_data(json_path):
 
 
 def create_dataframe(articles):
-    """Create DataFrame from articles"""
     print("\nCreating DataFrame...")
     
     data = []
     for article in articles:
         # Combine headline and description
-        headline = article.get('headline', '')
         description = article.get('short_description', '')
         combined_text = f"{headline} {description}".strip()
         
@@ -65,9 +56,7 @@ def create_dataframe(articles):
 def encode_labels(df):
     """Encode categorical labels to numeric"""
     print("Encoding labels...")
-    
-    # Create label mapping
-    label_mapping = {'SPORTS': 0, 'POLITICS': 1}
+    TS': 0, 'POLITICS': 1}
     df['label'] = df['category'].map(label_mapping)
     
     print(f"Label mapping: {label_mapping}")
@@ -81,9 +70,7 @@ def encode_labels(df):
 def create_visualizations(df, output_dir):
     """Create category distribution visualizations"""
     print("\nCreating visualizations...")
-    
-    # Create figure with subplots
-    fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+    print("\nCreating visualizations...")
     
     # Count plot
     category_counts = df['category'].value_counts()

@@ -17,7 +17,7 @@ This page presents comprehensive results and metrics from the Sports vs Politics
 | **Test Samples** | 8,136 (20%) |
 
 ### Class Distribution
-![Category Distribution](../data/processed/category_distribution.png)
+![Category Distribution](confusion_matrix_linear_svm.png)
 
 ---
 
@@ -48,7 +48,7 @@ Actual SPORTS       862      153    (84.9% correct)
 - ✓ Only 65 politics articles misclassified as sports (false positives)
 
 ### Confusion Matrix Visualization
-![Linear SVM Confusion Matrix](../results/confusion_matrix_linear_svm.png)
+![Linear SVM Confusion Matrix](confusion_matrix_linear_svm.png)
 
 ---
 
@@ -62,9 +62,9 @@ Actual SPORTS       862      153    (84.9% correct)
 | Logistic Regression | 96.58% | 96.51% | 99.71% | 98.08% | 98.81% | 0.0849s |
 
 ### Metrics Visualization
-![Metrics Heatmap](../results/metrics_heatmap.png)
+![Metrics Heatmap](metrics_heatmap.png)
 
-![Metrics Comparison](../results/metrics_comparison.png)
+![Metrics Comparison](metrics_comparison.png)
 
 ---
 
@@ -92,7 +92,7 @@ weighted avg       0.97      0.97      0.97      8136
 ```
 
 **Confusion Matrix:**
-![Linear SVM CM](../results/confusion_matrix_linear_svm.png)
+![Linear SVM CM](confusion_matrix_linear_svm.png)
 
 ---
 
@@ -119,7 +119,7 @@ Actual SPORTS       771      244    (75.9% correct)
 ```
 
 **Confusion Matrix Visualization:**
-![Naive Bayes CM](../results/confusion_matrix_naive_bayes.png)
+![Naive Bayes CM](confusion_matrix_naive_bayes.png)
 
 **Use Case:** When missing very few politics articles is critical (even at cost of more false positives).
 
@@ -148,7 +148,7 @@ Actual SPORTS       758      257    (74.6% correct)
 ```
 
 **Confusion Matrix Visualization:**
-![Logistic Regression CM](../results/confusion_matrix_logistic_regression.png)
+![Logistic Regression CM](confusion_matrix_logistic_regression.png)
 
 **Use Case:** When model interpretability is important or when maximizing recall is critical.
 

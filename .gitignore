@@ -1,9 +1,6 @@
-# Virtual Environment
 venv/
 ENV/
 env/
-
-# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -24,41 +21,18 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# Jupyter Notebook
 .ipynb_checkpoints
 *-checkpoint.ipynb
-
-# Data files
-data/raw/News_Category_Dataset_v3.json
-
-# Large processed files (optional - keep local only)
-data/processed/*.pkl
-data/processed/sports_politics.csv
-
-# Model files (optional - keep local only)
-models/*.pkl
-
-# Pip
 requirements-lock.txt
-
-# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
-
-# Results (can be regenerated)
-results/*.png
-results/metrics.csv
-
-# Temporary files
 *.tmp
 *.log
 .cache/
-
-# OS
-.DS_Store
+data/raw/
+notebooks/
 Thumbs.db

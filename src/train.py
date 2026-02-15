@@ -1,14 +1,3 @@
-"""
-Model Training Script for Sports vs Politics Classification
-
-Trains three classification models:
-1. Naive Bayes (MultinomialNB)
-2. Logistic Regression
-3. Linear SVM (LinearSVC)
-
-Generates predictions and basic performance metrics for each model.
-"""
-
 import sys
 import os
 import pickle
@@ -22,11 +11,9 @@ from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import confusion_matrix, classification_report
 
-# Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 def load_data():
-    """Load preprocessed data and features."""
     data_dir = Path(__file__).parent.parent / 'data' / 'processed'
     
     with open(data_dir / 'X_train.pkl', 'rb') as f:
@@ -43,7 +30,6 @@ def load_data():
 
 def train_naive_bayes(X_train, y_train):
     """Train Naive Bayes classifier."""
-    print("\n" + "=" * 80)
     print("TRAINING: Naive Bayes (Multinomial)")
     print("=" * 80)
     
@@ -60,7 +46,6 @@ def train_naive_bayes(X_train, y_train):
 
 def train_logistic_regression(X_train, y_train):
     """Train Logistic Regression classifier."""
-    print("\n" + "=" * 80)
     print("TRAINING: Logistic Regression")
     print("=" * 80)
     
@@ -78,7 +63,6 @@ def train_logistic_regression(X_train, y_train):
 def train_linear_svm(X_train, y_train):
     """Train Linear SVM classifier."""
     print("\n" + "=" * 80)
-    print("TRAINING: Linear SVM (LinearSVC)")
     print("=" * 80)
     
     model = LinearSVC(max_iter=2000, random_state=42)

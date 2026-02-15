@@ -32,46 +32,22 @@ def _download_nltk_data():
 
 _download_nltk_data()
 
-# Initialize stopwords and lemmatizer
 STOP_WORDS = set(stopwords.words('english'))
 LEMMATIZER = WordNetLemmatizer()
 
 
 def clean_text(text):
-    """
-    Clean and preprocess text.
-    
-    Steps:
-    1. Convert to lowercase
-    2. Remove URLs
-    3. Remove HTML tags
-    4. Remove punctuation and special characters
-    5. Tokenize
-    6. Remove stopwords
-    7. Lemmatize
-    
-    Args:
-        text (str): Raw text to clean
-        
-    Returns:
-        str: Cleaned text
-    """
     if not isinstance(text, str):
         return ""
     
-    # Convert to lowercase
     text = text.lower()
     
-    # Remove URLs
     text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
     
-    # Remove HTML tags
     text = re.sub(r'<.*?>', '', text)
     
-    # Remove email addresses
     text = re.sub(r'\S+@\S+', '', text)
     
-    # Remove special characters and digits, keep only alphabetic and spaces
     text = re.sub(r'[^a-zA-Z\s]', '', text)
     
     # Remove extra whitespaces
@@ -79,30 +55,19 @@ def clean_text(text):
     
     # Tokenize
     tokens = word_tokenize(text)
+    text = re.sub(r'\s+', ' ', text).strip()
     
-    # Remove stopwords and lemmatize
+    tokens = word_tokenize(text)
+    
     tokens = [LEMMATIZER.lemmatize(word) for word in tokens 
               if word not in STOP_WORDS and len(word) > 2]
     
-    # Join tokens back
     cleaned_text = ' '.join(tokens)
     
     return cleaned_text
 
 
-def preprocess_batch(texts):
-    """
-    Preprocess a batch of texts.
-    
-    Args:
-        texts (list): List of text strings
-        
-    Returns:
-        list: List of cleaned texts
-    """
-    return [clean_text(text) for text in texts]
-
-
+def preprocess_batch(texts)
 if __name__ == "__main__":
     # Test the preprocessing function
     sample_texts = [
