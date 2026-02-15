@@ -10,6 +10,19 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Results
+    url: /results
+  - title: Models
+    url: /models
+  - title: Methodology
+    url: /methodology
+  - title: GitHub
+    url: https://github.com/NeerModi/sports-vs-politics-classifier
+
 # Markdown settings
 markdown: kramdown
 highlighter: rouge
